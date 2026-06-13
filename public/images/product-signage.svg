@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Safety signage">
+  <rect width="800" height="600" fill="#f4f4f5"/>
+  <rect x="195" y="120" width="410" height="320" rx="18" fill="#d71920"/>
+  <rect x="230" y="155" width="340" height="250" rx="10" fill="#fff"/>
+  <path d="M300 330h200M400 215v115M355 250l45-35 45 35" fill="none" stroke="#d71920" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="260" y="360" width="280" height="22" rx="11" fill="#18181b"/>
+</svg>

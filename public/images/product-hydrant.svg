@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Fire hydrant accessories">
+  <rect width="800" height="600" fill="#f4f4f5"/>
+  <rect x="180" y="385" width="440" height="48" rx="24" fill="#18181b"/>
+  <rect x="330" y="170" width="140" height="230" rx="28" fill="#d71920"/>
+  <rect x="300" y="130" width="200" height="70" rx="24" fill="#d71920"/>
+  <circle cx="260" cy="255" r="58" fill="#d71920"/>
+  <circle cx="540" cy="255" r="58" fill="#d71920"/>
+  <circle cx="260" cy="255" r="25" fill="#fff"/>
+  <circle cx="540" cy="255" r="25" fill="#fff"/>
+  <path d="M400 120v-55" stroke="#18181b" stroke-width="22" stroke-linecap="round"/>
+</svg>
