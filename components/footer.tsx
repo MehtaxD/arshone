@@ -13,7 +13,7 @@ export function Footer() {
         <div>
           <span className="relative block h-28 w-[140px] overflow-hidden">
             <Image
-              src="/images/arshone-logo.png"
+              src="/images/FOOTERLOGO.JPEG"
               alt={site.shortName}
               width={500}
               height={500}
