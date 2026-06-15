@@ -53,13 +53,13 @@ export default function AboutPage() {
           Director's Message
         </p>
 <h2 className="mt-3 text-5xl font-black text-[#111] leading-tight">
-          Arshdeep G. Sandhu
+          Arshdip G. Sandhu
         </h2>
 <p className="mt-3 text-2xl font-bold text-[#d71920]">
-          Director, Arshone Fire Safety Pvt. Ltd.
+          Managing Director, Arshone Fire Safety Pvt. Ltd.
         </p>
 <p className="mt-8 text-xl leading-10 text-neutral-700">
-          Arshdeep G. Sandhu is a young entrepreneur and visionary leader dedicated
+          Arshdip G. Sandhu is a young entrepreneur and visionary leader dedicated
           to raising fire safety standards across Gujarat. With a strong MBA
           background and practical industry experience, he combines business
           leadership with hands-on field expertise.
@@ -71,21 +71,19 @@ export default function AboutPage() {
           industrial, commercial and residential projects.
         </p>
 <div className="mt-12 grid grid-cols-3 gap-5 max-w-2xl">
-          <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 text-center">
-            <p className="text-xl font-black text-[#d71920]">MBA,Fire Safety</p>
-            <p className="text-sm font-bold">Business Leadership</p>
-          </div>
-
-          <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 text-center">
-            <p className="text-xl font-black text-[#d71920]">Field</p>
-            <p className="text-sm font-bold">Industry Experience</p>
-          </div>
-
-          <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 text-center">
-            <p className="text-xl font-black text-[#d71920]">Vision</p>
-            <p className="text-sm font-bold">Future Focused</p>
-          </div>
-        </div>
+  <div className="flex min-h-[120px] flex-col items-center justify-center rounded-lg border border-neutral-200 bg-neutral-50 p-4 text-center">
+    <p className="text-lg font-black text-[#d71920]">MBA, Safety Management</p>
+    <p className="text-sm font-bold">Business Leadership</p>
+  </div>
+  <div className="flex min-h-[120px] flex-col items-center justify-center rounded-lg border border-neutral-200 bg-neutral-50 p-4 text-center">
+    <p className="text-lg font-black text-[#d71920]">Field</p>
+    <p className="text-sm font-bold">Industry Experience</p>
+  </div>
+  <div className="flex min-h-[120px] flex-col items-center justify-center rounded-lg border border-neutral-200 bg-neutral-50 p-4 text-center">
+    <p className="text-lg font-black text-[#d71920]">Vision</p>
+    <p className="text-sm font-bold">Future Focused</p>
+  </div>
+      </div>
       </div>
       </div>
 </div>

@@ -111,8 +111,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               <div className="rounded-lg bg-[#d71920] p-6 text-white">
                 <h2 className="text-2xl font-black">Need this service in Surat or Gujarat?</h2>
                 <p className="mt-2 text-red-50">Send your site details on WhatsApp and our team will respond with next steps for inspection, quote or maintenance support.</p>
-                <a className="focus-ring mt-5 inline-flex rounded-md bg-white px-5 py-3 font-black text-[#101114]" href={whatsappUrl(`Hello Arshone Fire Safety, I want to enquire about ${service.title}.`)} target="_blank" rel="noreferrer">
-                  WhatsApp CTA
+                <a className="focus-ring mt-5 inline-flex rounded-md bg-transparent px-5 py-3 font-black text-[#101114]" href={whatsappUrl(`Hello Arshone Fire Safety, I want to enquire about ${service.title}.`)} target="_blank" rel="noreferrer">
+                  WhatsApp Inquiry
                 </a>
               </div>
               <div>
