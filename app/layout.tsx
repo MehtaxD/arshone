@@ -6,6 +6,7 @@ import { Header } from "@/components/header";
 import { JsonLd, localBusinessSchema } from "@/components/schema";
 import { site } from "@/lib/site-data";
 import { ScrollTop } from "@/components/scroll-top";
+import Script from "next/script";
 
 export const metadata: Metadata = {
 metadataBase: new URL(site.domain),
@@ -45,6 +46,19 @@ export default function RootLayout({
 children
 }: Readonly<{ children: React.ReactNode }>) {
 return ( <html lang="en-IN"> <body> <ScrollTop /> <JsonLd data={localBusinessSchema()} /> <Header />
-{children} <Footer /> <FloatingActions /> </body> </html>
+<Script
+  src="https://www.googletagmanager.com/gtag/js?id=G-8R8P0HQG09"
+  strategy="afterInteractive"
+/>
+
+<Script id="google-analytics" strategy="afterInteractive">
+  {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8R8P0HQG09');
+  `}
+</Script>{children} <Footer /> <FloatingActions /> </body> </html>
 );
 }

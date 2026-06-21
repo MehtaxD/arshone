@@ -24,7 +24,7 @@ import type { LucideIcon } from "lucide-react";
 export const site = {
   name: "Arshone Fire Safety Pvt Ltd",
   shortName: "Arshone Fire Safety",
-  domain: "https://arshone.com",
+  domain: "https://www.arshone.com",
 
   phone: "+91 9173173919",
   phoneHref: "tel:+919173173919",
