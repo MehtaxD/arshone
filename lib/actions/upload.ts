@@ -1,36 +1,74 @@
 "use server";
 
-import { mkdir, writeFile } from "fs/promises";
-import path from "path";
+import { put } from "@vercel/blob";
 
-const UPLOAD_DIR = path.join(process.cwd(), "public", "uploads");
-const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
-const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif", "image/svg+xml"];
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
 
-export async function uploadImage(formData: FormData): Promise<{ url: string }> {
+const ALLOWED_TYPES = new Set([
+  "image/jpeg",
+  "image/jpg",
+  "image/png",
+  "image/webp",
+  "image/gif",
+  "image/svg+xml",
+]);
+
+export async function uploadImage(
+  formData: FormData
+): Promise<{ url: string }> {
   const file = formData.get("file");
 
   if (!(file instanceof File)) {
-    throw new Error("No file was uploaded.");
+    throw new Error("Please select an image.");
   }
 
-  if (!ALLOWED_TYPES.includes(file.type)) {
-    throw new Error("Unsupported file type. Please upload a JPG, PNG, WEBP, GIF or SVG image.");
+  if (file.size <= 0) {
+    throw new Error("The selected file is empty.");
   }
 
   if (file.size > MAX_FILE_SIZE) {
-    throw new Error("File is too large. Maximum size is 5MB.");
+    throw new Error("Image size must be less than 5 MB.");
   }
 
-  await mkdir(UPLOAD_DIR, { recursive: true });
+  if (!ALLOWED_TYPES.has(file.type)) {
+    throw new Error(
+      "Only JPG, JPEG, PNG, WEBP, GIF and SVG images are allowed."
+    );
+  }
 
-  const buffer = Buffer.from(await file.arrayBuffer());
-  const extension = path.extname(file.name) || `.${file.type.split("/")[1]}`;
-  const safeExtension = extension.replace(/[^a-zA-Z0-9.]/g, "");
-  const fileName = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}${safeExtension}`;
-  const filePath = path.join(UPLOAD_DIR, fileName);
+  const extension =
+    file.name.split(".").pop()?.toLowerCase() ||
+    file.type.split("/")[1] ||
+    "jpg";
 
-  await writeFile(filePath, buffer);
+  const safeExtension = extension.replace(/[^a-z0-9]/gi, "");
 
-  return { url: `/uploads/${fileName}` };
+  const baseName = file.name
+    .replace(/\.[^.]+$/, "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/gi, "-")
+    .replace(/^-+|-+$/g, "");
+
+  const filename = `${baseName || "image"}-${Date.now()}-${crypto
+    .randomUUID()
+    .slice(0, 8)}.${safeExtension}`;
+
+  try {
+    const blob = await put(filename, file, {
+      access: "public",
+      addRandomSuffix: false,
+      cacheControlMaxAge: 31536000,
+    });
+
+    return {
+      url: blob.url,
+    };
+  } catch (error) {
+    console.error("Blob upload failed:", error);
+
+    throw new Error(
+      "Unable to upload the image. Please try again in a few moments."
+    );
+  }
 }
